@@ -54,12 +54,20 @@ readonly PROGNAME=$(basename $0)
 readonly SCRIPT_PATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 # Version of your program
 readonly VERSION="0.1"
-# Date of th day
+# Date of the day
 readonly DATE=$(date +%Y-%m-%d)
 # Arguments sent to program
 readonly ARGS="$@"
 
-# Log related settings
+# Mail-related settings
+# Mail will be sent from this user
+readonly MAIL_FROM_USER="Admin"
+# Mail will be sent from this email
+readonly MAIL_FROM_EMAIL="example@domain.tld"
+# Mail will be sent to this email
+readonly MAIL_TO_EMAIL="example@domain.tld"
+
+# Log-related settings
 # Log file
 readonly LOG_FILE="${SCRIPT_PATH}/${PROGNAME:0:-3}.log"
 # log levels
@@ -68,6 +76,12 @@ readonly -A levels=([DEBUG]=0 [INFO]=1 [WARN]=2 [ERROR]=3)
 readonly LOG_LEVEL_DEFAULT="WARN"
 log_level_set=${LOG_LEVEL_DEFAULT}
 
+init_checks() {
+  init_check_log_file
+  init_check_mail
+}
+
+# Check if log file installed. If not, try create it
 init_check_log_file() {
   # If log file doesn't exist, create it.
   if [[ ! -f ${LOG_FILE} ]]; then
@@ -77,11 +91,31 @@ init_check_log_file() {
     if [[ $? -eq 0 ]]; then
       log "INFO" "Creation of log file, done!"
     else
-      log "ERROR" "Failed to create log file"
+      echo "Failure to create log file"
     fi
     set -e
   fi
 }
+
+# Check if 
+init_check_mail() {
+  set +e
+  if ! command -v mail >/dev/null; then
+    log "WARN" "Mail module not installed, you won't be able to send emails"
+  fi
+  set -e
+}
+
+send_mail() {
+  if [[ $# -eq 2 ]]; then
+    mail_subject=$1
+    mail_message=$2
+    echo "${mail_message}" | mail -s "${mail_subject}" -aFrom:${MAIL_FROM_USER}<${MAIL_FROM_EMAIL}> ${MAIL_TO_EMAIL}
+  else
+    log "ERROR" "You tried to send an email but you are missing an argument. E.g: send_mail \"WARN\" \"Message\" "
+  fi
+}
+
 
 # Function to get arguments and act accordingly with some default values already set
 # -v|--version: get version
@@ -203,5 +237,7 @@ main() {
   log "ERROR" "Error log"
 }
 
-init_check_log_file
+send_mail "INFO"
+init_checks
 cmdline ${ARGS}
+

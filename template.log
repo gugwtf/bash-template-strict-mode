@@ -1,0 +1,18 @@
+2020-05-09_18:32:00 - [33m[1m[WARNING] [0m | Warning log
+2020-05-09_18:32:00 - [31m[1m[ALERT] [0m | Error log
+2020-05-09_18:32:34 - [33m[1m[WARNING] [0m | Mail module not installed, you won't be able to send emails
+2020-05-09_18:32:34 - [33m[1m[WARNING] [0m | Warning log
+2020-05-09_18:32:34 - [31m[1m[ALERT] [0m | Error log
+2020-05-09_18:33:07 - [33m[1m[WARNING] [0m | Warning log
+2020-05-09_18:33:07 - [31m[1m[ALERT] [0m | Error log
+2020-05-09_18:33:19 - [33m[1m[WARNING] [0m | Mail module not installed, you won't be able to send emails
+2020-05-09_18:33:19 - [33m[1m[WARNING] [0m | Warning log
+2020-05-09_18:33:19 - [31m[1m[ALERT] [0m | Error log
+2020-05-09_18:36:52 - [33m[1m[WARNING] [0m | Warning log
+2020-05-09_18:36:52 - [31m[1m[ALERT] [0m | Error log
+2020-05-09_18:37:13 - [31m[1m[ALERT] [0m | You tried to send an email but you are missing an argument. E.g: log "WARN" "Message" 
+2020-05-09_18:37:13 - [33m[1m[WARNING] [0m | Warning log
+2020-05-09_18:37:13 - [31m[1m[ALERT] [0m | Error log
+2020-05-09_18:37:37 - [31m[1m[ALERT] [0m | You tried to send an email but you are missing an argument. E.g: log "WARN" "Message" 
+2020-05-09_18:37:37 - [33m[1m[WARNING] [0m | Warning log
+2020-05-09_18:37:37 - [31m[1m[ALERT] [0m | Error log
