@@ -235,9 +235,10 @@ main() {
   log "INFO" "Info log"
   log "WARN" "Warning log"
   log "ERROR" "Error log"
+
+  send_mail "Subject" "Message"
 }
 
-send_mail "INFO"
 init_checks
 cmdline ${ARGS}
 
