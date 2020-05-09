@@ -18,6 +18,6 @@ If you have ideas or want to correct something feel free to do so by contacting 
 
 # Resources
 
-Man set: https://ss64.com/bash/set.html
-Bash Strict mode: http://redsymbol.net/articles/unofficial-bash-strict-mode/
-Bash protection [FR]: https://blog.seboss666.info/2020/04/programmation-defensive-en-bash/
+- Man set: https://ss64.com/bash/set.html 
+- Bash Strict mode: http://redsymbol.net/articles/unofficial-bash-strict-mode/
+- Bash protection [FR]: https://blog.seboss666.info/2020/04/programmation-defensive-en-bash/
